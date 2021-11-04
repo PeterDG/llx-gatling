@@ -1,0 +1,1 @@
+sbt "Gatling / testOnly com.leaflogix.simulations.backend.Stability" - stability test

@@ -40,7 +40,7 @@ read: https://github.com/TinkoffCreditSystems/gatling-picatinny/blob/master/READ
 1. Debug test with 1 user, requires proxy on localhost:8888, eg using Fiddler or Wireshark
 
 ```
-sbt "Gatling / testOnly com.leaflogix.Debug"
+sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Debug"
 ```
 
 2. Run test from IDEA with breakpoints
@@ -52,6 +52,6 @@ com.GatlingRunner
 ## Launch test
 
 ```
-sbt "Gatling / testOnly com.leaflogix.MaxPerformance" - maximum performance test
-sbt "Gatling / testOnly com.leaflogix.Stability" - stability test
+sbt "Gatling / testOnly com.leaflogix.simulations.public_api.MaxPerformance" - maximum performance test
+sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Stability" - stability test
 ```

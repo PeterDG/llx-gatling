@@ -1,5 +1,6 @@
 package com.leaflogix
 
+import com.leaflogix.simulations.public_api.Debug
 import io.gatling.app.Gatling
 import io.gatling.core.config.GatlingPropertiesBuilder
 
