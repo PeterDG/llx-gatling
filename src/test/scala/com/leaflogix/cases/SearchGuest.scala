@@ -21,11 +21,5 @@ object SearchGuest {
       .check(status is 200)
       .check(jsonPath("$.Result").is("${Result}"))
       .check(jsonPath("$.Message").isNull)
-      .check(jsonPath("$").ofType[String].saveAs("response"))
     )
-    .exec { session =>
-      val response = session("response").as[String]
-      println("Response:" + response)
-      session
-    }
 }

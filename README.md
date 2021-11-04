@@ -35,23 +35,15 @@ INFLUX_PREFIX - see /etc/influxdb/influxdb.conf: database
 Also you can pass all params from gatling-picatinny or use custom params
 read: https://github.com/TinkoffCreditSystems/gatling-picatinny/blob/master/README.md
 
-## Debug
-
-1. Debug test with 1 user, requires proxy on localhost:8888, eg using Fiddler or Wireshark
+## Launch test with default values
 
 ```
-sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Debug"
+sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Stability"
 ```
 
-2. Run test from IDEA with breakpoints
+## Launch test with custom values
 
 ```
-com.GatlingRunner
-```
-
-## Launch test
-
-```
-sbt "Gatling / testOnly com.leaflogix.simulations.public_api.MaxPerformance" - maximum performance test
-sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Stability" - stability test
+SET JAVA_OPTS=-DbaseUrl=https://leaflogix-env-test.azurewebsites.net"
+sbt "Gatling / testOnly com.leaflogix.simulations.pos.Stability"
 ```

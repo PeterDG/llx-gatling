@@ -1,1 +1,1 @@
-sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Stability" - stability test
+sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Stability"
