@@ -17,9 +17,4 @@ object SearchGuest {
       .check(jsonPath("$.Message").isNull)
       .check(jsonPath("$.Data").ofType[String].saveAs("searchGuest"))
     )
-    .exec(session => {
-      println("SessionId:" + User.sessionId)
-      println("searchGuest:" + session("searchGuest").as[String])
-      session
-    })
 }

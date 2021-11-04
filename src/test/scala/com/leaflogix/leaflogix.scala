@@ -5,8 +5,6 @@ import io.gatling.http.Predef._
 import ru.tinkoff.gatling.config.SimulationConfig._
 
 package object leaflogix {
-  System.out.println("URL:" + baseUrl)
-  System.out.println("Auth:" + baseAuthUrl)
   val httpProtocol = http
     .baseUrl(baseUrl)
     .authorizationHeader(baseAuthUrl)
