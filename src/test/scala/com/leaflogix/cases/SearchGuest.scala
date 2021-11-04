@@ -1,20 +1,31 @@
 package com.leaflogix.cases
 
+import com.leaflogix.cases.User.sessionIdFeeder
+import com.leaflogix.data.Common.PARAMETERS
+import com.leaflogix.data.Pos.{SEARCH_GUEST_BY_STRING_NAME, SEARCH_GUEST_BY_STRING_PATH, SEARCH_GUEST_BY_STRING_REQUEST}
 import io.gatling.core.Predef.{feed, _}
 import io.gatling.http.Predef._
 
-object SearchGuest {
-  val feeder = jsonFile("data/parameters.json").random
+import scala.io.Source.fromResource
 
-  val search = feed(feeder)
-    .exec(http("Search guest")
-      .post("/api/v2/guest/checkin_search_by_string")
+object SearchGuest {
+  val parameters = jsonFile(PARAMETERS).random
+
+  val search = feed(parameters)
+    .feed(sessionIdFeeder.random)
+    .exec(http(SEARCH_GUEST_BY_STRING_NAME)
+      .post(SEARCH_GUEST_BY_STRING_PATH)
       .header(HttpHeaderNames.SetCookie, User.cookie)
-      .body(StringBody("""{"LspId": "${LspId}","LocId": "${LocId}","Register": "${Register}","UserId": "${UserId}","SearchString": "${SearchString}","SessionId":"""" + User.sessionId + """"}"""))
+      .body(StringBody(fromResource(SEARCH_GUEST_BY_STRING_REQUEST).mkString))
       .asJson
       .check(status is 200)
-      .check(jsonPath("$.Result").is("true"))
+      .check(jsonPath("$.Result").is("${Result}"))
       .check(jsonPath("$.Message").isNull)
-      .check(jsonPath("$.Data").ofType[String].saveAs("searchGuest"))
+      .check(jsonPath("$").ofType[String].saveAs("response"))
     )
+    .exec { session =>
+      val response = session("response").as[String]
+      println("Response:" + response)
+      session
+    }
 }

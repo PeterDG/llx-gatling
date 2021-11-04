@@ -1,0 +1,86 @@
+[
+  {
+    "Result": true,
+    "Message": null,
+    "Data": [
+      {
+        "Guest_id": 12993142,
+        "Name": "Test Automation",
+        "PatientType": "Retailer",
+        "MJStateIDNo": "1234540111",
+        "DriversLicenseId": "",
+        "MMJIDExpiration": "2045-12-31T00:00:00",
+        "avatar": null,
+        "PhoneNo": "",
+        "Email": "",
+        "LastTransaction": "1900-01-01T00:00:00",
+        "DOB": null
+      },
+      {
+        "Guest_id": 12993147,
+        "Name": "Test Automation",
+        "PatientType": "Retailer",
+        "MJStateIDNo": "1234535776",
+        "DriversLicenseId": "",
+        "MMJIDExpiration": "2045-12-31T00:00:00",
+        "avatar": null,
+        "PhoneNo": "",
+        "Email": "",
+        "LastTransaction": "1900-01-01T00:00:00",
+        "DOB": null
+      },
+      {
+        "Guest_id": 12993152,
+        "Name": "Test Automation",
+        "PatientType": "Retailer",
+        "MJStateIDNo": "1234576398",
+        "DriversLicenseId": "",
+        "MMJIDExpiration": "2045-12-31T00:00:00",
+        "avatar": null,
+        "PhoneNo": "",
+        "Email": "",
+        "LastTransaction": "1900-01-01T00:00:00",
+        "DOB": null
+      },
+      {
+        "Guest_id": 12993157,
+        "Name": "Test Automation",
+        "PatientType": "Retailer",
+        "MJStateIDNo": "1234566640",
+        "DriversLicenseId": "",
+        "MMJIDExpiration": "2045-12-31T00:00:00",
+        "avatar": null,
+        "PhoneNo": "",
+        "Email": "",
+        "LastTransaction": "1900-01-01T00:00:00",
+        "DOB": null
+      },
+      {
+        "Guest_id": 12993162,
+        "Name": "Test Automation",
+        "PatientType": "Retailer",
+        "MJStateIDNo": "1234599576",
+        "DriversLicenseId": "",
+        "MMJIDExpiration": "2045-12-31T00:00:00",
+        "avatar": null,
+        "PhoneNo": "",
+        "Email": "",
+        "LastTransaction": "1900-01-01T00:00:00",
+        "DOB": null
+      },
+      {
+        "Guest_id": 12993167,
+        "Name": "Test Automation",
+        "PatientType": "Retailer",
+        "MJStateIDNo": "1234560354",
+        "DriversLicenseId": "",
+        "MMJIDExpiration": "2045-12-31T00:00:00",
+        "avatar": null,
+        "PhoneNo": "",
+        "Email": "",
+        "LastTransaction": "1900-01-01T00:00:00",
+        "DOB": null
+      }
+    ]
+  }
+]
