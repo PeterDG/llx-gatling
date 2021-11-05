@@ -1,6 +1,6 @@
-package com.leaflogix.data
+package com.leaflogix.enums
 
-object Common {
+object CommonParams extends Enumeration {
 
   val USERS = "data/user.csv"
   val PARAMETERS = "data/parameters.json"

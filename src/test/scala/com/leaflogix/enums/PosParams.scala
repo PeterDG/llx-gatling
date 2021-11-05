@@ -1,6 +1,6 @@
-package com.leaflogix.data
+package com.leaflogix.enums
 
-object Pos {
+object PosParams extends Enumeration {
 
   val SEARCH_GUEST_BY_STRING_NAME = "Search guest"
   val SEARCH_GUEST_BY_STRING_PATH = "/api/v2/guest/checkin_search_by_string"

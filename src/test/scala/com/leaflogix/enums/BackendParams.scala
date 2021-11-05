@@ -1,6 +1,6 @@
-package com.leaflogix.data
+package com.leaflogix.enums
 
-object Backend {
+object BackendParams extends Enumeration {
 
   val EMPLOYEE_LOGIN_NAME = "Log In"
   val EMPLOYEE_LOGIN_PATH = "/api/posv3/user/EmployeeLogin"

@@ -1,8 +1,8 @@
 package com.leaflogix.cases
 
 import com.leaflogix.cases.User.sessionIdFeeder
-import com.leaflogix.data.Common.PARAMETERS
-import com.leaflogix.data.Pos.{SEARCH_GUEST_BY_STRING_NAME, SEARCH_GUEST_BY_STRING_PATH, SEARCH_GUEST_BY_STRING_REQUEST}
+import com.leaflogix.enums.CommonParams.PARAMETERS
+import com.leaflogix.enums.PosParams.{SEARCH_GUEST_BY_STRING_NAME, SEARCH_GUEST_BY_STRING_PATH, SEARCH_GUEST_BY_STRING_REQUEST}
 import io.gatling.core.Predef.{feed, _}
 import io.gatling.http.Predef._
 
