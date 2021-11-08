@@ -1,6 +1,6 @@
-package com.leaflogix.enums
+package com.leaflogix.params
 
-object DataPath extends Enumeration {
+object DataPaths {
 
   val USERS = "data/user.csv"
   val PARAMETERS = "data/parameters.json"

@@ -1,9 +1,9 @@
 package com.leaflogix.cases
 
-import com.leaflogix.enums.DataPath.{EMPLOYEE_LOGIN_REQUEST, EMPLOYEE_LOGIN_RESPONSE, USERS}
-import com.leaflogix.enums.Identifier.EMPLOYEE_LOGIN_NAME
-import com.leaflogix.enums.Session.{COOKIE, SESSION_ID}
-import com.leaflogix.enums.Url.EMPLOYEE_LOGIN_PATH
+import com.leaflogix.params.DataPaths.{EMPLOYEE_LOGIN_REQUEST, EMPLOYEE_LOGIN_RESPONSE, USERS}
+import com.leaflogix.params.Identifiers.EMPLOYEE_LOGIN_NAME
+import com.leaflogix.params.Session.{COOKIE, SESSION_ID}
+import com.leaflogix.params.Urls.EMPLOYEE_LOGIN_PATH
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 

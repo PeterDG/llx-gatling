@@ -1,6 +1,6 @@
 package com.leaflogix.cases
 
-import com.leaflogix.enums.Session.{COOKIE, SESSION_ID}
+import com.leaflogix.params.Session.{COOKIE, SESSION_ID}
 import io.gatling.core.Predef._
 
 object User {

@@ -1,4 +1,4 @@
-package com.leaflogix.enums
+package com.leaflogix.params
 
 object Session extends Enumeration {
 
