@@ -1,0 +1,14 @@
+[{
+  "Result": true,
+  "Message": "valid pos user",
+  "Data": {
+    "Id": 64737,
+    "FullName": "LL QA Automation",
+    "SessionGId": "18354C3E-E091-4F6C-81DA-93D835A4BA11",
+    "SessionId": "10139885",
+    "LoginType": "LSP",
+    "PatientAcct": 0,
+    "OnlineStatus": "",
+    "TraceId": null
+  }
+}]
