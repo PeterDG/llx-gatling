@@ -3,18 +3,20 @@ package com.leaflogix.cases
 import com.leaflogix.params.DataPaths.{EMPLOYEE_LOGIN_REQUEST, EMPLOYEE_LOGIN_RESPONSE, USERS}
 import com.leaflogix.params.Identifiers.EMPLOYEE_LOGIN_NAME
 import com.leaflogix.params.Session.{COOKIE, SESSION_ID}
-import com.leaflogix.params.Urls.EMPLOYEE_LOGIN_PATH
+import com.leaflogix.params.paths.BackendPaths.EMPLOYEE_LOGIN_PATH
 import io.gatling.core.Predef._
+import io.gatling.core.feeder.{BatchableFeederBuilder, FileBasedFeederBuilder}
+import io.gatling.core.structure.ChainBuilder
 import io.gatling.http.Predef._
 
 import scala.io.Source.fromResource
 
 object Login {
 
-  val users = csv(USERS).random
-  val response = jsonFile(EMPLOYEE_LOGIN_RESPONSE).random
+  val users: BatchableFeederBuilder[String]#F = csv(USERS).random
+  val response: FileBasedFeederBuilder[Any]#F = jsonFile(EMPLOYEE_LOGIN_RESPONSE).random
 
-  val employeeLogin = feed(users)
+  val employeeLogin: ChainBuilder = feed(users)
     .feed(response)
     .exec(http(EMPLOYEE_LOGIN_NAME)
       .post(EMPLOYEE_LOGIN_PATH)

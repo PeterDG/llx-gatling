@@ -1,0 +1,11 @@
+{
+  "LspId": "${LspId}",
+  "LocId": "${LocId}",
+  "Register": "${Register}",
+  "UserId": "${UserId}",
+  "SessionId": "${SessionId}",
+  "RoomId": "${RoomId}",
+  "AcctId": "${CustomerId}",
+  "MJStateIDNo": "${MmjStateId}",
+  "shipmentId": ""
+}

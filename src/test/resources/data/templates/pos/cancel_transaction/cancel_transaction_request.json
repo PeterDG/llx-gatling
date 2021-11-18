@@ -1,0 +1,12 @@
+{
+  "LspId": "${LspId}",
+  "LocId": "${LocId}",
+  "Register": "${Register}",
+  "RegisterId": "${Register}",
+  "UserId": "${UserId}",
+  "CancelReason": "Test",
+  "SessionId": "${SessionId}",
+  "Guest_id": "${CustomerId}",
+  "ScheduleId": "${ScanResult}",
+  "shipmentId": "${ShipmentId}"
+}
