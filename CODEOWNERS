@@ -1,0 +1,5 @@
+# https://github.blog/2017-07-06-introducing-code-owners/
+# NOTE: Order is important. The last matching pattern has the most precedence.
+
+# Default owners for everything in the repo.
+* @GetDutchie/llx-qa-leads
