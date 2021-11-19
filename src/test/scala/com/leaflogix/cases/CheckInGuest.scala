@@ -1,6 +1,5 @@
 package com.leaflogix.cases
 
-import com.leaflogix.cases.User.sessionIdFeeder
 import com.leaflogix.params.DataPaths.{CHECKIN_GUEST_REQUEST, CHECKIN_GUEST_RESPONSE, CUSTOMERS, PARAMETERS}
 import com.leaflogix.params.Session.{SCAN_RESULT, SHIPMENT_ID}
 import com.leaflogix.params.paths.POSPaths.CHECKIN_GUEST
@@ -19,11 +18,9 @@ object CheckInGuest {
 
   val checkInGuest: ChainBuilder = feed(parameters)
     .feed(response)
-    .feed(sessionIdFeeder.random)
     .feed(customers)
     .exec(http(CHECKIN_GUEST)
       .post(CHECKIN_GUEST)
-      .header(HttpHeaderNames.SetCookie, User.cookie)
       .body(StringBody(fromResource(CHECKIN_GUEST_REQUEST).mkString))
       .asJson
       .check(status is 200)

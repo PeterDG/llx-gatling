@@ -2,10 +2,11 @@ package com
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import io.gatling.http.protocol.HttpProtocolBuilder
 import ru.tinkoff.gatling.config.SimulationConfig._
 
 package object leaflogix {
-  val httpProtocol = http
+  val httpProtocol: HttpProtocolBuilder = http
     .baseUrl(baseUrl)
     .authorizationHeader(baseAuthUrl)
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")

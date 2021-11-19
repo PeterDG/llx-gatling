@@ -1,6 +1,5 @@
 package com.leaflogix.cases
 
-import com.leaflogix.cases.User.sessionIdFeeder
 import com.leaflogix.params.DataPaths.{CANCEL_TRANSACTION_REQUEST, CANCEL_TRANSACTION_RESPONSE, PARAMETERS}
 import com.leaflogix.params.paths.POSPaths.CANCEL_TRANSACTION
 import io.gatling.core.Predef._
@@ -17,10 +16,9 @@ object CancelTransaction {
 
   val cancelTransaction: ChainBuilder = feed(parameters)
     .feed(response)
-    .feed(sessionIdFeeder.random)
+    .pause(1)
     .exec(http(CANCEL_TRANSACTION)
       .post(CANCEL_TRANSACTION)
-      .header(HttpHeaderNames.SetCookie, User.cookie)
       .body(StringBody(fromResource(CANCEL_TRANSACTION_REQUEST).mkString))
       .asJson
       .check(status is 200)
