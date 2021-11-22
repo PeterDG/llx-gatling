@@ -1,0 +1,10 @@
+[
+  {
+    "Result": true,
+    "Message": "Item added to cart sucessfully",
+    "Data": {
+      "InvId": 8406887,
+      "PackageItemId": 0
+    }
+  }
+]

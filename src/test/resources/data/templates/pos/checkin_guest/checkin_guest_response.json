@@ -1,0 +1,13 @@
+[
+  {
+    "Result": true,
+    "Message": "Patient Checked In",
+    "Data": [
+      {
+        "ScanId": 2221875,
+        "ScanResult": "2956243",
+        "ShipmentId": 3022607
+      }
+    ]
+  }
+]
