@@ -1,6 +1,6 @@
 package com.leaflogix.cases
 
-import com.leaflogix.params.DataPaths.{CHECKIN_GUEST_REQUEST, CHECKIN_GUEST_RESPONSE, CUSTOMERS, PARAMETERS}
+import com.leaflogix.params.DataPaths.{CHECKIN_GUEST_REQUEST, CHECKIN_GUEST_RESPONSE, CHECKOUT_CUSTOMERS, PARAMETERS}
 import com.leaflogix.params.Session.{SCAN_RESULT, SHIPMENT_ID}
 import com.leaflogix.params.paths.POSPaths.CHECKIN_GUEST
 import io.gatling.core.Predef._
@@ -14,7 +14,7 @@ object CheckInGuest {
 
   val parameters: FileBasedFeederBuilder[Any]#F = jsonFile(PARAMETERS).random
   val response: FileBasedFeederBuilder[Any]#F = jsonFile(CHECKIN_GUEST_RESPONSE).random
-  val customers: BatchableFeederBuilder[String]#F = csv(CUSTOMERS).circular
+  val customers: BatchableFeederBuilder[String]#F = csv(CHECKOUT_CUSTOMERS).circular
 
   val checkInGuest: ChainBuilder = feed(parameters)
     .feed(response)

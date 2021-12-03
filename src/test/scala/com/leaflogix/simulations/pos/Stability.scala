@@ -1,7 +1,7 @@
 package com.leaflogix.simulations.pos
 
 import com.leaflogix.httpProtocol
-import com.leaflogix.scenarios.pos.{CancelTransactionBehavior, GuestListSearchByString}
+import com.leaflogix.scenarios.pos.{CancelTransactionBehavior, CheckoutBehavior, GuestListSearchByString}
 import io.gatling.core.Predef._
 import ru.tinkoff.gatling.config.SimulationConfig._
 import ru.tinkoff.gatling.influxdb.Annotations
@@ -13,6 +13,10 @@ class Stability extends Simulation with Annotations {
       constantUsersPerSec(intensity.toInt) during stageDuration,
     ),
     CancelTransactionBehavior().inject(
+      rampUsersPerSec(0) to intensity.toInt during rampDuration,
+      constantUsersPerSec(intensity.toInt) during stageDuration,
+    ),
+    CheckoutBehavior().inject(
       rampUsersPerSec(0) to intensity.toInt during rampDuration,
       constantUsersPerSec(intensity.toInt) during stageDuration,
     )

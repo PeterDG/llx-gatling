@@ -1,0 +1,6 @@
+{
+  "SessionId": "${SessionId}",
+  "LspId": "${LspId}",
+  "LocId": "${LocId}",
+  "UserId": "${UserId}"
+}
