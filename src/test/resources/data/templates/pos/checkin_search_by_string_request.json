@@ -1,8 +1,0 @@
-{
-  "LspId": "${LspId}",
-  "LocId": "${LocId}",
-  "Register": "${Register}",
-  "UserId": "${UserId}",
-  "SearchString": "${SearchString}",
-  "SessionId": "xxx"
-}

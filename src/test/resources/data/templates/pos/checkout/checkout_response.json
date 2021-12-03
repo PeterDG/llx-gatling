@@ -1,0 +1,16 @@
+[
+  {
+    "IntegrationResult": true,
+    "IntegrationMessage": null,
+    "IntegrationData": null,
+    "Result": true,
+    "Message": null,
+    "Data": [
+      {
+        "ResultId": 1,
+        "ReesultTxt": "Completed",
+        "OverThreshold": false
+      }
+    ]
+  }
+]
