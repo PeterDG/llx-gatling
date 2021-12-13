@@ -10,7 +10,8 @@ import java.util.Calendar
 
 object PublicAPIGetReportingTransactions {
 
-  val format = new SimpleDateFormat("MM/dd/yyyy hh:mm aa")
+  val DATE_FORMAT = "MM/dd/yyyy hh:mm aa";
+  val format = new SimpleDateFormat(DATE_FORMAT)
   val date: Calendar = Calendar.getInstance()
   val today: String = format.format(date.getTime)
   date.add(Calendar.DATE, 1)
