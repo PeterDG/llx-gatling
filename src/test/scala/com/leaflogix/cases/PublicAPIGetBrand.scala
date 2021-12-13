@@ -5,7 +5,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import io.gatling.http.request.builder.HttpRequestBuilder
 
-object GetBrand {
+object PublicAPIGetBrand {
 
   val getBrand: HttpRequestBuilder = http(GET_BRANDS)
     .get(GET_BRANDS)
