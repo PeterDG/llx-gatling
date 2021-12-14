@@ -8,4 +8,5 @@ object Session extends Enumeration {
   val SCAN_RESULT = "ScanResult"
   val DATE = "Date"
   val END_DATE = "EndDate"
+  val DATE_FORMAT = "MM/dd/yyyy hh:mm aa"
 }

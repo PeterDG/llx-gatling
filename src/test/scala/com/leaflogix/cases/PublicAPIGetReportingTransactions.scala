@@ -1,5 +1,6 @@
 package com.leaflogix.cases
 
+import com.leaflogix.params.Session.DATE_FORMAT
 import com.leaflogix.params.paths.PublicAPIPaths.GET_REPORTING_TRANSACTIONS
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
@@ -10,7 +11,6 @@ import java.util.Calendar
 
 object PublicAPIGetReportingTransactions {
 
-  val DATE_FORMAT = "MM/dd/yyyy hh:mm aa";
   val format = new SimpleDateFormat(DATE_FORMAT)
   val date: Calendar = Calendar.getInstance()
   val today: String = format.format(date.getTime)

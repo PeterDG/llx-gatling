@@ -1,7 +1,7 @@
 package com.leaflogix.cases
 
 import com.leaflogix.params.DataPaths.{CLOSING_REPORT_REQUEST, CLOSING_REPORT_RESPONSE, PARAMETERS}
-import com.leaflogix.params.Session.{DATE, END_DATE}
+import com.leaflogix.params.Session.{DATE, DATE_FORMAT, END_DATE}
 import com.leaflogix.params.paths.BackendPaths.CLOSING_REPORT
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
@@ -17,8 +17,7 @@ object ClosingReport {
   val parameters: FileBasedFeederBuilder[Any]#F = jsonFile(PARAMETERS).random
   val response: FileBasedFeederBuilder[Any]#F = jsonFile(CLOSING_REPORT_RESPONSE).random
 
-  val DATE_FORMAT = "MM/dd/yyyy hh:mm aa"
-  val format = new SimpleDateFormat(DATE_FORMAT)
+    val format = new SimpleDateFormat(DATE_FORMAT)
   val date: Calendar = Calendar.getInstance()
   val today: String = format.format(date.getTime)
   date.add(Calendar.DATE, 1)
