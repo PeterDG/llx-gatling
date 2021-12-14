@@ -1,0 +1,9 @@
+{
+  "SessionId": "${SessionId}",
+  "LspId": "${LspId}",
+  "LocId": "${LocId}",
+  "UserId": "${UserId}",
+  "IncludeDetail": true,
+  "Date": "${Date}",
+  "EndDate": "${EndDate}"
+}

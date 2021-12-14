@@ -7,4 +7,5 @@ object POSPaths {
   val ADD_ITEM_TO_CART = "/api/v2/cart/add_item_to_shopping_cart"
   val CANCEL_TRANSACTION = "/api/v2/guest/cancel_checkin"
   val CHECKOUT = "/api/v2/guest/checkOut_Guest"
+  val PRODUCT_SEARCH = "/api/v2/product/product_Searchv2"
 }
