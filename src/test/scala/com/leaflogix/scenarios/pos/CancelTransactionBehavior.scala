@@ -11,6 +11,6 @@ object CancelTransactionBehavior {
 class CancelTransactionBehavior {
 
   val cancelTransaction: ScenarioBuilder = scenario("CheckIn customer then cancel transaction")
-    .exec(Login.employeeLogin, CheckInGuest.checkInGuest,  AddItemToCart.addItemToCart, CancelTransaction.cancelTransaction)
+    .exec(Login.employeeLogin, CheckInGuest.checkInGuest, CancelTransaction.cancelTransaction)
 
 }
