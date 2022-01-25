@@ -7,8 +7,8 @@ Leaflogix project for gatling performance tests
 
 ```
 src.test.resources - project resources
-src.test.scala.com.leaflogix.cases - simple cases
-src.test.scala.com.leaflogix.scenarios - common load scenarios assembled from simple cases
+src.test.scala.com.leaflogix.endpoints - reusables endpoints files
+src.test.scala.com.leaflogix.scenarios - common load scenarios assembled from endpoints 
 src.test.scala.com.leaflogix - common test configs
 ```
 
@@ -38,7 +38,20 @@ read: https://github.com/TinkoffCreditSystems/gatling-picatinny/blob/master/READ
 ## Launch test with default values
 
 ```
+Public API scenarios
 sbt "Gatling / testOnly com.leaflogix.simulations.public_api.Stability"
+
+Backend scenarios
+sbt "Gatling / testOnly com.leaflogix.simulations.backend.Stability"
+
+POS scenarios
+sbt "Gatling / testOnly com.leaflogix.simulations.pos.Stability"
+
+All Scenarios
+sbt "Gatling / testOnly com.leaflogix.simulations.Stability"
+
+Cancel Transactions 
+sbt "Gatling / testOnly com.leaflogix.simulations.pos.CancelTransactions"
 ```
 
 ## Launch test with custom values
