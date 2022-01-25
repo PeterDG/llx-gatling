@@ -9,4 +9,6 @@ object Session extends Enumeration {
   val DATE = "Date"
   val END_DATE = "EndDate"
   val DATE_FORMAT = "MM/dd/yyyy hh:mm aa"
+  val backendUrl = "https://parallel-uat.leaflogix.net"
+  val posUrl = "https://parallel-pos-uat.leaflogix.net"
 }

@@ -1,4 +1,4 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.Session.DATE_FORMAT
 import com.leaflogix.params.paths.PublicAPIPaths.GET_REPORTING_TRANSACTIONS

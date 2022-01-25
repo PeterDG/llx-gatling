@@ -1,6 +1,7 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{ADD_ITEM_TO_CART_REQUEST, ADD_ITEM_TO_CART_RESPONSE, PARAMETERS}
+import com.leaflogix.params.Session.posUrl
 import com.leaflogix.params.paths.POSPaths.ADD_ITEM_TO_CART
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
@@ -17,7 +18,7 @@ object AddItemToCart {
   val addItemToCart: ChainBuilder = feed(parameters)
     .feed(response)
     .exec(http(ADD_ITEM_TO_CART)
-      .post(ADD_ITEM_TO_CART)
+      .post(posUrl + ADD_ITEM_TO_CART)
       .body(StringBody(fromResource(ADD_ITEM_TO_CART_REQUEST).mkString))
       .asJson
       .check(status is 200)

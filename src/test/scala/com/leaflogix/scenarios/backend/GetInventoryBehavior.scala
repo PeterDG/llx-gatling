@@ -1,6 +1,6 @@
 package com.leaflogix.scenarios.backend
 
-import com.leaflogix.cases._
+import com.leaflogix.endpoints._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 
@@ -11,6 +11,6 @@ object GetInventoryBehavior {
 class GetInventoryBehavior {
 
   val getInventory: ScenarioBuilder = scenario("User gets inventory")
-    .exec(Login.employeeLogin, GetInventory.getInventory)
+    .exec(Login.employeeLoginBackend, GetInventory.getInventory)
 
 }

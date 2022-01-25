@@ -9,22 +9,17 @@ import ru.tinkoff.gatling.influxdb.Annotations
 class Stability extends Simulation with Annotations {
   setUp(
     GuestListSearchByString().inject(
-      rampUsersPerSec(0) to intensity.toInt during rampDuration,
-      constantUsersPerSec(intensity.toInt) during stageDuration,
+      constantConcurrentUsers(intensity.toInt).during(stageDuration),
     ),
     CancelTransactionBehavior().inject(
-      rampUsersPerSec(0) to intensity.toInt during rampDuration,
-      constantUsersPerSec(intensity.toInt) during stageDuration,
+      constantConcurrentUsers(intensity.toInt).during(stageDuration),
     ),
     CheckoutBehavior().inject(
-      rampUsersPerSec(0) to intensity.toInt during rampDuration,
-      constantUsersPerSec(intensity.toInt) during stageDuration,
+      constantConcurrentUsers(intensity.toInt).during(stageDuration),
     ),
     ProductSearchBehavior().inject(
-      rampUsersPerSec(0) to intensity.toInt during rampDuration,
-      constantUsersPerSec(intensity.toInt) during stageDuration,
+      constantConcurrentUsers(intensity.toInt).during(stageDuration),
     )
   ).protocols(httpProtocol)
     .maxDuration(testDuration)
-
 }

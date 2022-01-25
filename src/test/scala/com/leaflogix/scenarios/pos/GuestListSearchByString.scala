@@ -1,6 +1,6 @@
 package com.leaflogix.scenarios.pos
 
-import com.leaflogix.cases._
+import com.leaflogix.endpoints._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 
@@ -11,6 +11,6 @@ object GuestListSearchByString {
 class GuestListSearchByString {
 
   val search: ScenarioBuilder = scenario("Search for users by string in the guest list")
-    .exec(Login.employeeLogin, SearchGuest.search)
+    .exec(Login.employeeLoginPOS, SearchGuest.search)
 
 }

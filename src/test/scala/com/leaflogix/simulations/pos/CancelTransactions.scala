@@ -3,12 +3,10 @@ package com.leaflogix.simulations.pos
 import com.leaflogix.httpProtocol
 import com.leaflogix.scenarios.pos.CancelTransactionBehavior
 import io.gatling.core.Predef._
-import ru.tinkoff.gatling.config.SimulationConfig._
 import ru.tinkoff.gatling.influxdb.Annotations
 
 class CancelTransactions extends Simulation with Annotations {
   setUp(
-    CancelTransactionBehavior().inject(atOnceUsers(50)
-    )
+    CancelTransactionBehavior().inject(atOnceUsers(100))
   ).protocols(httpProtocol)
 }

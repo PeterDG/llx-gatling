@@ -1,6 +1,7 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{PARAMETERS, RECEIVE_REQUEST, RECEIVE_RESPONSE}
+import com.leaflogix.params.Session.backendUrl
 import com.leaflogix.params.paths.BackendPaths.RECEIVE
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
@@ -17,7 +18,7 @@ object Receive {
   val receive: ChainBuilder = feed(parameters)
     .feed(response)
     .exec(http(RECEIVE)
-      .post(RECEIVE)
+      .post(backendUrl + RECEIVE)
       .body(StringBody(fromResource(RECEIVE_REQUEST).mkString))
       .asJson
       .check(status is 200)

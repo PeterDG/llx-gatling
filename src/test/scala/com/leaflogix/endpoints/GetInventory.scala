@@ -1,6 +1,7 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{GET_INVENTORY_REQUEST, GET_INVENTORY_RESPONSE, PARAMETERS}
+import com.leaflogix.params.Session.backendUrl
 import com.leaflogix.params.paths.BackendPaths.GET_INVENTORY
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
@@ -17,7 +18,7 @@ object GetInventory {
   val getInventory: ChainBuilder = feed(parameters)
     .feed(response)
     .exec(http(GET_INVENTORY)
-      .post(GET_INVENTORY)
+      .post(backendUrl + GET_INVENTORY)
       .body(StringBody(fromResource(GET_INVENTORY_REQUEST).mkString))
       .asJson
       .check(status is 200)
