@@ -1,6 +1,6 @@
 package com.leaflogix.scenarios.public_api
 
-import com.leaflogix.cases._
+import com.leaflogix.endpoints._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 

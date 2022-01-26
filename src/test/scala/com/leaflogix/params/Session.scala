@@ -9,4 +9,5 @@ object Session extends Enumeration {
   val DATE = "Date"
   val END_DATE = "EndDate"
   val DATE_FORMAT = "MM/dd/yyyy hh:mm aa"
+
 }

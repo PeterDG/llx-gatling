@@ -1,8 +1,8 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{CHECKIN_GUEST_REQUEST, CHECKIN_GUEST_RESPONSE, CHECKOUT_CUSTOMERS, PARAMETERS}
 import com.leaflogix.params.Session.{SCAN_RESULT, SHIPMENT_ID}
-import com.leaflogix.params.paths.POSPaths.CHECKIN_GUEST
+import com.leaflogix.params.paths.POSPaths.{CHECKIN_GUEST, POS_URL}
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.{BatchableFeederBuilder, FileBasedFeederBuilder}
 import io.gatling.core.structure.ChainBuilder
@@ -20,7 +20,7 @@ object CheckInGuest {
     .feed(response)
     .feed(customers)
     .exec(http(CHECKIN_GUEST)
-      .post(CHECKIN_GUEST)
+      .post(POS_URL + CHECKIN_GUEST)
       .body(StringBody(fromResource(CHECKIN_GUEST_REQUEST).mkString))
       .asJson
       .check(status is 200)

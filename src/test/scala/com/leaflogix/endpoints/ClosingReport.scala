@@ -1,8 +1,8 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{CLOSING_REPORT_REQUEST, CLOSING_REPORT_RESPONSE, PARAMETERS}
 import com.leaflogix.params.Session.{DATE, DATE_FORMAT, END_DATE}
-import com.leaflogix.params.paths.BackendPaths.CLOSING_REPORT
+import com.leaflogix.params.paths.BackendPaths.{BACKEND_URL, CLOSING_REPORT}
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
 import io.gatling.core.structure.ChainBuilder
@@ -17,7 +17,7 @@ object ClosingReport {
   val parameters: FileBasedFeederBuilder[Any]#F = jsonFile(PARAMETERS).random
   val response: FileBasedFeederBuilder[Any]#F = jsonFile(CLOSING_REPORT_RESPONSE).random
 
-    val format = new SimpleDateFormat(DATE_FORMAT)
+  val format = new SimpleDateFormat(DATE_FORMAT)
   val date: Calendar = Calendar.getInstance()
   val today: String = format.format(date.getTime)
   date.add(Calendar.DATE, 1)
@@ -28,7 +28,7 @@ object ClosingReport {
     .exec(_.set(END_DATE, tomorrow))
     .feed(response)
     .exec(http(CLOSING_REPORT)
-      .post(CLOSING_REPORT)
+      .post(BACKEND_URL + CLOSING_REPORT)
       .body(StringBody(fromResource(CLOSING_REPORT_REQUEST).mkString))
       .asJson
       .check(status is 200)

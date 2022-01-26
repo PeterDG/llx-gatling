@@ -1,9 +1,10 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{EMPLOYEE_LOGIN_REQUEST, EMPLOYEE_LOGIN_RESPONSE, USERS}
 import com.leaflogix.params.Identifiers.EMPLOYEE_LOGIN_NAME
 import com.leaflogix.params.Session.{COOKIE, SESSION_ID}
-import com.leaflogix.params.paths.BackendPaths.EMPLOYEE_LOGIN_PATH
+import com.leaflogix.params.paths.BackendPaths.{BACKEND_URL, EMPLOYEE_LOGIN_PATH}
+import com.leaflogix.params.paths.POSPaths.POS_URL
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.{BatchableFeederBuilder, FileBasedFeederBuilder}
 import io.gatling.core.structure.ChainBuilder
@@ -16,10 +17,23 @@ object Login {
   val users: BatchableFeederBuilder[String]#F = csv(USERS).random
   val response: FileBasedFeederBuilder[Any]#F = jsonFile(EMPLOYEE_LOGIN_RESPONSE).random
 
-  val employeeLogin: ChainBuilder = feed(users)
+  val employeeLoginPOS: ChainBuilder = feed(users)
     .feed(response)
     .exec(http(EMPLOYEE_LOGIN_NAME)
-      .post(EMPLOYEE_LOGIN_PATH)
+      .post(POS_URL + EMPLOYEE_LOGIN_PATH)
+      .body(StringBody(fromResource(EMPLOYEE_LOGIN_REQUEST).mkString))
+      .asJson
+      .check(status is 200)
+      .check(jsonPath("$.Result").is("${Result}"))
+      .check(jsonPath("$.Message").is("${Message}"))
+      .check(jsonPath("$.Data.SessionGId").ofType[String].saveAs(SESSION_ID))
+      .check(headerRegex(HttpHeaderNames.SetCookie, ".*").optional.saveAs(COOKIE))
+    )
+
+  val employeeLoginBackend: ChainBuilder = feed(users)
+    .feed(response)
+    .exec(http(EMPLOYEE_LOGIN_NAME)
+      .post(BACKEND_URL + EMPLOYEE_LOGIN_PATH)
       .body(StringBody(fromResource(EMPLOYEE_LOGIN_REQUEST).mkString))
       .asJson
       .check(status is 200)

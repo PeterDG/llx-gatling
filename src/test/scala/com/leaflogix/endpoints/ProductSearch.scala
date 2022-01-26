@@ -1,7 +1,7 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{PARAMETERS, PRODUCT_SEARCH_REQUEST, PRODUCT_SEARCH_RESPONSE}
-import com.leaflogix.params.paths.POSPaths.PRODUCT_SEARCH
+import com.leaflogix.params.paths.POSPaths.{POS_URL, PRODUCT_SEARCH}
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
 import io.gatling.core.structure.ChainBuilder
@@ -17,7 +17,7 @@ object ProductSearch {
   val productSearch: ChainBuilder = feed(parameters)
     .feed(response)
     .exec(http(PRODUCT_SEARCH)
-      .post(PRODUCT_SEARCH)
+      .post(POS_URL + PRODUCT_SEARCH)
       .body(StringBody(fromResource(PRODUCT_SEARCH_REQUEST).mkString))
       .asJson
       .check(status is 200)

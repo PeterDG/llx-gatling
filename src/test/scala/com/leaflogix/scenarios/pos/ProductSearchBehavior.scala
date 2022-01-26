@@ -1,6 +1,6 @@
 package com.leaflogix.scenarios.pos
 
-import com.leaflogix.cases._
+import com.leaflogix.endpoints._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 
@@ -11,6 +11,6 @@ object ProductSearchBehavior {
 class ProductSearchBehavior {
 
   val productSearch: ScenarioBuilder = scenario("Search for products after checkin guest")
-    .exec(Login.employeeLogin, CheckInGuest.checkInGuest, ProductSearch.productSearch)
+    .exec(Login.employeeLoginPOS, CheckInGuest.checkInGuest, ProductSearch.productSearch)
 
 }

@@ -1,6 +1,6 @@
 package com.leaflogix.scenarios.backend
 
-import com.leaflogix.cases._
+import com.leaflogix.endpoints._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 
@@ -11,6 +11,5 @@ object ClosingReportBehavior {
 class ClosingReportBehavior {
 
   val closingReport: ScenarioBuilder = scenario("User generates closing report")
-    .exec(Login.employeeLogin, ClosingReport.closingReport)
-
+    .exec(Login.employeeLoginBackend, ClosingReport.closingReport)
 }

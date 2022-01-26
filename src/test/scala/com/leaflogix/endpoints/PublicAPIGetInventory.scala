@@ -1,4 +1,4 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.paths.PublicAPIPaths.GET_INVENTORY
 import io.gatling.core.Predef._

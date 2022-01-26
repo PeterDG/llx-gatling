@@ -1,8 +1,8 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{PARAMETERS, SEARCH_GUEST_BY_STRING_REQUEST, SEARCH_GUEST_BY_STRING_RESPONSE}
 import com.leaflogix.params.Identifiers.SEARCH_GUEST_BY_STRING_NAME
-import com.leaflogix.params.paths.POSPaths.SEARCH_GUEST_BY_STRING_PATH
+import com.leaflogix.params.paths.POSPaths.{POS_URL, SEARCH_GUEST_BY_STRING_PATH}
 import io.gatling.core.Predef.{feed, _}
 import io.gatling.core.feeder.FileBasedFeederBuilder
 import io.gatling.core.structure.ChainBuilder
@@ -17,7 +17,7 @@ object SearchGuest {
   val search: ChainBuilder = feed(parameters)
     .feed(response)
     .exec(http(SEARCH_GUEST_BY_STRING_NAME)
-      .post(SEARCH_GUEST_BY_STRING_PATH)
+      .post(POS_URL + SEARCH_GUEST_BY_STRING_PATH)
       .body(StringBody(fromResource(SEARCH_GUEST_BY_STRING_REQUEST).mkString))
       .asJson
       .check(status is 200)

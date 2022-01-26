@@ -1,7 +1,7 @@
-package com.leaflogix.cases
+package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{CHECKOUT_REQUEST, CHECKOUT_RESPONSE, PARAMETERS}
-import com.leaflogix.params.paths.POSPaths.CHECKOUT
+import com.leaflogix.params.paths.POSPaths.{CHECKOUT, POS_URL}
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
 import io.gatling.core.structure.ChainBuilder
@@ -18,7 +18,7 @@ object Checkout {
     .feed(response)
     .pause(1)
     .exec(http(CHECKOUT)
-      .post(CHECKOUT)
+      .post(POS_URL + CHECKOUT)
       .body(StringBody(fromResource(CHECKOUT_REQUEST).mkString))
       .asJson
       .check(status is 200)
