@@ -1,8 +1,7 @@
 package com.leaflogix.endpoints
 
 import com.leaflogix.params.DataPaths.{CANCEL_TRANSACTION_REQUEST, CANCEL_TRANSACTION_RESPONSE, PARAMETERS}
-import com.leaflogix.params.Session.posUrl
-import com.leaflogix.params.paths.POSPaths.CANCEL_TRANSACTION
+import com.leaflogix.params.paths.POSPaths.{CANCEL_TRANSACTION, POS_URL}
 import io.gatling.core.Predef._
 import io.gatling.core.feeder.FileBasedFeederBuilder
 import io.gatling.core.structure.ChainBuilder
@@ -19,7 +18,7 @@ object CancelTransaction {
     .feed(response)
     .pause(1)
     .exec(http(CANCEL_TRANSACTION)
-      .post(posUrl + CANCEL_TRANSACTION)
+      .post(POS_URL + CANCEL_TRANSACTION)
       .body(StringBody(fromResource(CANCEL_TRANSACTION_REQUEST).mkString))
       .asJson
       .check(status is 200)
