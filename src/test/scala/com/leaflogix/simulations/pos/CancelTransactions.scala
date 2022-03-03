@@ -7,6 +7,6 @@ import ru.tinkoff.gatling.influxdb.Annotations
 
 class CancelTransactions extends Simulation with Annotations {
   setUp(
-    CancelTransactionBehavior().inject(atOnceUsers(100))
+    CancelTransactionBehavior().inject(atOnceUsers(101))
   ).protocols(httpProtocol)
 }
