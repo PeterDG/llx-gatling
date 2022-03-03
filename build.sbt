@@ -24,5 +24,6 @@ lazy val root = (project in file("."))
       "-language:higherKinds",
       "-language:existentials",
       "-language:postfixOps"
-    )
+    ),
+    Gatling / javaOptions := overrideDefaultJavaOptions("-Xms1024m", "-Xmx4096m")
   )

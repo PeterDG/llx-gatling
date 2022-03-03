@@ -59,4 +59,7 @@ sbt "Gatling / testOnly com.leaflogix.simulations.pos.CancelTransactions"
 ```
 SET JAVA_OPTS=-DbaseUrl=https://leaflogix-env-test.azurewebsites.net"
 sbt "Gatling / testOnly com.leaflogix.simulations.pos.Stability"
+or
+Adding java options parameter to IDE run setup 
+JAVA_OPTS=-DCONSOLE_LOGGING=ON -Xloggc:garbage-collection.log -XX:+PrintGCTimeStamps -XX:+PrintGCDetails
 ```
